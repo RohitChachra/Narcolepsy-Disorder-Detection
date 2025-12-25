@@ -18,6 +18,7 @@ This project explores the potential of **EEG signal analysis combined with machi
 - **Source:** PhysioNet  
 - **Link:** https://physionet.org/physiobank/database/capslpdb/  
 
+
 ### Subjects Used
 - 5 Healthy subjects  
 - 5 Narcoleptic subjects  
@@ -29,10 +30,10 @@ This project explores the potential of **EEG signal analysis combined with machi
 ## 🧠 EEG Signal Overview
 
 ### EEG 10–20 Electrode Montage
-![EEG Montage](_Images/EEG%2010-20%20Montage.png)
+<img src="_Images/EEG 10-20 Montage.png" width="450">
 
-### BEEG Electrodes
-![EEG](_Images/PSG_2.jpg)
+### EEG Electrodes
+<img src="_Images/PSG_2.jpg" width="450">
 
 ---
 ## 🔁 Proposed Methodology Flowchart
@@ -47,7 +48,7 @@ The complete pipeline—from raw EEG to classification—is illustrated below:
 The EEG signals undergo multiple preprocessing steps to improve signal quality and physiological interpretability.
 
 ### Bipolar to Unipolar Conversion
-![Bipolar to Unipolar](_Images/Bipolar%20To%20Unipolar.png)
+<img src="_Images\Bipolar To Unipolar.png" width="450">
 
 ### Preprocessing Steps
 - Bandpass filtering (0.1–30 Hz)
@@ -56,18 +57,19 @@ The EEG signals undergo multiple preprocessing steps to improve signal quality a
 
 ### ICA Artifact Removal Examples
 **Narcoleptic EEG**
-![Narco ICA](_Images/narco%20ICA.png)
 
-**Healthy EEG**
-![Normal ICA](_Images/normal%20ICA.png)
+<img src="_Images\narco ICA.png" width="450">
+
+**Normal EEG**
+
+<img src="_Images\normal ICA.png" width="450">
 
 ---
 
 ## ⏱️ Epoch Segmentation
 
-Preprocessed EEG signals are segmented into **30-second epochs**, a standard practice in sleep analysis.
+Preprocessed EEG signals are segmented into **30-second non-overlapping epochs**, a standard practice in sleep analysis.
 
-![Epoch Segmentation](_Images/Epoch%20Segmentation.png)
 ![Epoch](_Images/Epoch.png)
 ---
 
@@ -112,21 +114,23 @@ The following supervised models were trained and evaluated:
 - LightGBM  
 
 ### Validation Strategy
-- **3-Fold Stratified Cross-Validation**
-- Metrics: Balanced Accuracy, AUC, Gini Coefficient, KS Statistic
+- Model performance was evaluated using **3-fold stratified cross-validation** to preserve class distribution across folds.
+- **Optuna** was employed for automated hyperparameter optimization.
+- Models were assessed using **Balanced Accuracy, Area Under the ROC Curve (AUC), Gini Coefficient, and KS Statistic**.
+
 
 ---
 
 ## 📈 Model Evaluation & Explainability
 
 ### ROC Curve – AdaBoost (Multi-Channel)
-![ROC AUC AdaBoost](_Images/ROC(AUC)%20AdaBoost.png)
+<img src="_Images\ROC(AUC) AdaBoost.png" width="450">
 
 ### Confusion Matrix – AdaBoost (Multi-Channel)
-![Confusion Matrix](_Images/confusion%20matrix%20adaboost%20multichannel.png)
+<img src="_Images\confusion matrix adaboost multichannel.png" width="450">
 
 ### SHAP-Based Feature Importance
-![SHAP XGBoost](_Images/SHAP(XGBoost).png)
+<img src="_Images\SHAP(XGBoost).png" width="450">
 
 SHAP analysis confirms that the models rely on **physiologically meaningful EEG features**, improving transparency and trust.
 
@@ -134,7 +138,7 @@ SHAP analysis confirms that the models rely on **physiologically meaningful EEG 
 
 ## 📊 Final Results Summary
 
-| Channel / Configuration | Best Model | Balanced Accuracy | AUC   | Gini  | KS    |
+| Channel | Best Model | Balanced Accuracy | AUC   | Gini  | KS    |
 |------------------------|------------|-------------------|-------|-------|-------|
 | Fp2                    | SVM        | 0.5236            | 0.4689| 0.062 | 0.160 |
 | F4                     | SVM        | 0.3757            | 0.2327| 0.535 | 0.518 |
@@ -159,11 +163,13 @@ SHAP analysis confirms that the models rely on **physiologically meaningful EEG 
 
 ## 👨‍💻 Project Team
 
-**Project Done By**
-- Rohit Chachra (UE228087)  
-- Sehajdeep Singh Saini (UE228090)  
-- Rahul Grover (UE228083)  
-- Raj Kumar (UE228084)  
+**Project Team**
+| Team Member | Roll No. |
+|------|----------|
+| Rohit Chachra | UE228087 |
+| Sehajdeep Singh Saini | UE228090 |
+| Rahul Grover | UE228083 |
+| Raj Kumar | UE228084 |
 
 **Mentor**  
 Dr. Neelam Goel  
